@@ -1,6 +1,6 @@
 ﻿namespace Home_and_House_Security
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
