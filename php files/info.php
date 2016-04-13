@@ -1,9 +1,8 @@
 <?php
-	
-	$db=mysql_connect ("localhost", "hnh-user", "hnhteam")
-	or die ('I cannot connect to the database.');
-	if(!$db){
-		die( "Connection failed");
+	$mysqli = new mysqli("localhost", "hnh-user","hnhteam", "hnh-db");
+	if (mysqli_connect_errno()) {
+		printf("Connect failed: %s\n", mysqli_connect_error());
+		exit();
 	}
-	$isSelected= mysql_select_db ("hnh-db");
+	
 ?>

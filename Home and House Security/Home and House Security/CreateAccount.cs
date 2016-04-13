@@ -21,10 +21,17 @@ namespace Home_and_House_Security
         {
             if (verifyInfo())
             {
-                makeNewAccount();
-                MessageBox.Show("Welcome "+fname.Text+" "+
-                    lname.Text+"!\nPlease log in and setup your new account.");
-                this.Hide();
+                Message m=makeNewAccount();
+                if (m.message.Equals("false"))
+                {
+                    MessageBox.Show("Error occured will makiing your account!");
+                }
+                else
+                {
+                    MessageBox.Show("Welcome " + fname.Text + " " +
+                        lname.Text + "!\nPlease log in and setup your new account.");
+                    this.Hide();
+                }
             }
         }
 
@@ -51,6 +58,11 @@ namespace Home_and_House_Security
                 MessageBox.Show("Your username must contain atleast 3 character!");
                 return false;
             }
+            if (user.Text.Contains(" "))
+            {
+                MessageBox.Show("Your username can not contain spaces as a character!");
+                return false;
+            }
             if (pass1.Text.Length<7)
             {
                 MessageBox.Show("Your pasword must contain atleast 7 character!");
@@ -62,12 +74,22 @@ namespace Home_and_House_Security
                 MessageBox.Show("Passwords does not match!");
                 return false;
             }
+            Message m = HNHWebServer.doJSONPost<Message>("check-user-availability.php", "name="+user.Text);
+            Console.WriteLine(m.message);
+            Console.WriteLine(m.type);
+            if (!m.message.Equals("false"))
+            {
+                MessageBox.Show("Username already taken!");
+                return false;
+            }
 
             return true;
         }
-        private void makeNewAccount()
+        private Message makeNewAccount()
         {
-
+            Message m = HNHWebServer.doJSONPost<Message>("create-user.php", "name=" + fname.Text+" "+
+                lname.Text+ "&username=" + user.Text+ "&password=" + pass1.Text);
+            return m;
         }
     }
 }
