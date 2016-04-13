@@ -33,10 +33,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.username = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
+            this.signin = new System.Windows.Forms.Button();
+            this.createAccount = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -91,37 +91,38 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Password";
             // 
-            // textBox1
+            // username
             // 
-            this.textBox1.Location = new System.Drawing.Point(36, 171);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 20);
-            this.textBox1.TabIndex = 2;
+            this.username.Location = new System.Drawing.Point(36, 171);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(155, 20);
+            this.username.TabIndex = 2;
             // 
-            // textBox2
+            // password
             // 
-            this.textBox2.Location = new System.Drawing.Point(36, 231);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 20);
-            this.textBox2.TabIndex = 2;
+            this.password.Location = new System.Drawing.Point(36, 231);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(155, 20);
+            this.password.TabIndex = 2;
             // 
-            // button1
+            // signin
             // 
-            this.button1.Location = new System.Drawing.Point(36, 270);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.signin.Location = new System.Drawing.Point(36, 270);
+            this.signin.Name = "signin";
+            this.signin.Size = new System.Drawing.Size(75, 23);
+            this.signin.TabIndex = 3;
+            this.signin.Text = "Login";
+            this.signin.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // createAccount
             // 
-            this.button2.Location = new System.Drawing.Point(36, 299);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Create New Account";
-            this.button2.UseVisualStyleBackColor = true;
+            this.createAccount.Location = new System.Drawing.Point(36, 299);
+            this.createAccount.Name = "createAccount";
+            this.createAccount.Size = new System.Drawing.Size(120, 23);
+            this.createAccount.TabIndex = 3;
+            this.createAccount.Text = "Create New Account";
+            this.createAccount.UseVisualStyleBackColor = true;
+            this.createAccount.Click += new System.EventHandler(this.createAccount_Click);
             // 
             // pictureBox1
             // 
@@ -162,10 +163,10 @@
             this.ClientSize = new System.Drawing.Size(656, 362);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.createAccount);
+            this.Controls.Add(this.signin);
+            this.Controls.Add(this.password);
+            this.Controls.Add(this.username);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -187,10 +188,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox username;
+        private System.Windows.Forms.TextBox password;
+        private System.Windows.Forms.Button signin;
+        private System.Windows.Forms.Button createAccount;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;

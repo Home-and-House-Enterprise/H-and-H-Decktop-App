@@ -12,6 +12,7 @@ namespace Home_and_House_Security
 {
     public partial class Login : Form
     {
+        CreateAccount createAccForm = new CreateAccount();
         public Login()
         {
             InitializeComponent();
@@ -25,6 +26,11 @@ namespace Home_and_House_Security
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void createAccount_Click(object sender, EventArgs e)
+        {
+            createAccForm.ShowDialog(this);
         }
     }
 }
