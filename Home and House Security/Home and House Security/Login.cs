@@ -32,5 +32,24 @@ namespace Home_and_House_Security
         {
             createAccForm.ShowDialog(this);
         }
+
+        private void signin_Click(object sender, EventArgs e)
+        {
+            Message m = HNHWebServer.doJSONPost<Message>("validate-login.php", "username=" + username.Text +
+                "&password=" + password.Text);
+            Console.WriteLine(m.name);
+            if (m.message.Equals("true"))
+            {
+
+                this.Hide();
+                User mainUser= HNHWebServer.doJSONPost<User>("get-user.php", "username=" + username.Text +
+                "&password=" + password.Text);
+                ControlPanel cp = new ControlPanel(mainUser);
+                cp.Show();
+            }
+            else{
+                MessageBox.Show("Invalide Username or Password!");
+            }
+        }
     }
 }

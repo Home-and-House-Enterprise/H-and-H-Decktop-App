@@ -113,6 +113,7 @@
             this.signin.TabIndex = 3;
             this.signin.Text = "Login";
             this.signin.UseVisualStyleBackColor = true;
+            this.signin.Click += new System.EventHandler(this.signin_Click);
             // 
             // createAccount
             // 
