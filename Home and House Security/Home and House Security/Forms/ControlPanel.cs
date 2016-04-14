@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Home_and_House_Security.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +13,23 @@ namespace Home_and_House_Security
 {
     public partial class ControlPanel : Form
     {
+        FloorPlans fp;
         User user;
         public ControlPanel(User userIn)
         {
             InitializeComponent();
             user = userIn;
+            fp = new FloorPlans();
         }
 
         private void ControlPanel_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void viewfp_Click(object sender, EventArgs e)
+        {
+            fp.ShowDialog(this);
         }
     }
 }
