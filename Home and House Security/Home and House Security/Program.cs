@@ -14,6 +14,9 @@ namespace Home_and_House_Security
         [STAThread]
         static void Main()
         {
+            MediaStorageConnector con = new MediaStorageConnector();
+            con.sendImage();
+            con.getImage();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());

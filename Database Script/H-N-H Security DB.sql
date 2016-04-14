@@ -1,5 +1,6 @@
 DROP DATABASE `hnh-db`;
 CREATE DATABASE `hnh-db`;
+USE `hnh-db`;
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -21,9 +22,15 @@ CREATE TABLE IF NOT EXISTS `floor_plans` (
   PRIMARY KEY (`id`,`userid`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci AUTO_INCREMENT=1 ;
-
+/*
+The sensor id will not auto increment
+the sensor id will be a unique value
+given to the sensor by the administrator
+the server will use this value to find the sensor
+upon user request
+*/
 CREATE TABLE IF NOT EXISTS `sensors` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL,
   `floor_plan_id` bigint(20) NOT NULL,
   `name` varchar(40) NOT NULL,
   `type` varchar(40) DEFAULT NULL,
@@ -32,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `sensors` (
   `enabled` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`,`floor_plan_id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `lights` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
