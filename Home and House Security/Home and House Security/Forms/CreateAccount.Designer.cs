@@ -41,6 +41,8 @@
             this.cancel = new System.Windows.Forms.Button();
             this.makeAccount = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.email = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -167,6 +169,24 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Welcome to H and H Security";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(234, 136);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 18);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Email";
+            // 
+            // email
+            // 
+            this.email.Location = new System.Drawing.Point(234, 157);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(182, 20);
+            this.email.TabIndex = 1;
+            // 
             // CreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,7 +201,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lname);
+            this.Controls.Add(this.email);
             this.Controls.Add(this.user);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.fname);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -208,5 +230,7 @@
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button makeAccount;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox email;
     }
 }

@@ -7,11 +7,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(20) NOT NULL,
   `name` varchar(40) NOT NULL,
   `password` varchar(40) NOT NULL,
+  `email` varchar(160) NOT NULL,
   `accountType` varchar(10)  NOT NULL DEFAULT 'Home Owner',
   `address` varchar(120) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`,`username`),
-  UNIQUE KEY `username` (`username`)
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `floor_plans` (
@@ -110,6 +112,6 @@ ALTER TABLE  `rooms` ADD FOREIGN KEY (  `floor_plan_id` ) REFERENCES `hnh-db`.`f
 ) ON DELETE CASCADE ON UPDATE CASCADE ;
 
 
-INSERT INTO `hnh-db`.`users` (`id`, `username`, `name`, `password`, `accountType`) VALUES ('1', 'root', 'root', 'themainrootuseisthebose', 'admin');
-INSERT INTO `hnh-db`.`users` (`username`, `name`, `password`) VALUES ('emanuelp7', 'Emanual Peters', '1234567');
+INSERT INTO `hnh-db`.`users` (`id`, `username`, `name`, `email`,`password`, `accountType`) VALUES ('1', 'root', 'root', 'emanuelp7@hnh.com','themainrootuseisthebose', 'admin');
+INSERT INTO `hnh-db`.`users` (`username`, `name`, `email`,`password`) VALUES ('emanuelp7', 'Emanual Peters', 'root@hnh.com','1234567');
 INSERT INTO `hnh-db`.`floor_plans` (`id`, `userid`, `name`, `picture`) VALUES ('1', '1', 'global', 'none');

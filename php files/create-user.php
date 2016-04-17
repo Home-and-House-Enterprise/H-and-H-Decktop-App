@@ -4,7 +4,8 @@
 	$name = $_POST["name"];
 	$user = $_POST["username"];
 	$pass = $_POST["password"];
-	$sql = "INSERT INTO `hnh-db`.`users` (`username`, `name`, `password`) VALUES ('".$user."', '".$name."','".$pass."');";
+	$email = $_POST["email"];
+	$sql = "INSERT INTO `hnh-db`.`users` (`username`, `name`, `email`,`password`) VALUES ('".$user."', '".$name."', '".$email."','".$pass."');";
 	$result = $mysqli->query($sql);
 	if ( false===$result ) {
 		echo json_encode(["type" => "success", "message" => false]);

@@ -24,7 +24,7 @@ namespace Home_and_House_Security
                 Message m=makeNewAccount();
                 if (m.message.Equals("false"))
                 {
-                    MessageBox.Show("Error occured will makiing your account!");
+                    MessageBox.Show("Error occured will making your account!");
                 }
                 else
                 {
@@ -63,6 +63,11 @@ namespace Home_and_House_Security
                 MessageBox.Show("Your username can not contain spaces as a character!");
                 return false;
             }
+            if (email.Text.Contains(" ")|| !email.Text.Contains("@")|| !email.Text.Contains("."))
+            {
+                MessageBox.Show("Invalid email address!");
+                return false;
+            }
             if (pass1.Text.Length<7)
             {
                 MessageBox.Show("Your pasword must contain atleast 7 character!");
@@ -75,11 +80,17 @@ namespace Home_and_House_Security
                 return false;
             }
             Message m = HNHWebServer.doJSONPost<Message>("check-user-availability.php", "name="+user.Text);
+            if (!m.message.Equals("false"))
+            {
+                MessageBox.Show("Username already taken!");
+                return false;
+            }
+            m = HNHWebServer.doJSONPost<Message>("check-email-availability.php", "email=" + email.Text);
             Console.WriteLine(m.message);
             Console.WriteLine(m.type);
             if (!m.message.Equals("false"))
             {
-                MessageBox.Show("Username already taken!");
+                MessageBox.Show("Email already taken!");
                 return false;
             }
 
@@ -88,7 +99,7 @@ namespace Home_and_House_Security
         private Message makeNewAccount()
         {
             Message m = HNHWebServer.doJSONPost<Message>("create-user.php", "name=" + fname.Text+" "+
-                lname.Text+ "&username=" + user.Text+ "&password=" + pass1.Text);
+                lname.Text+ "&username=" + user.Text+ "&password=" + pass1.Text + "&email=" + email.Text);
             return m;
         }
     }
