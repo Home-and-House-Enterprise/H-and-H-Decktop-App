@@ -37,4 +37,8 @@ public class Sensor {
 		this.ypos = ypos;
 	}
 	
+	/*public String toJSON(){
+		
+	}*/
+	
 }

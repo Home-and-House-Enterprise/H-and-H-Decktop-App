@@ -11,8 +11,8 @@ import com.mysql.jdbc.Connection;
 import entities.User;
 
 public class HnHDBConnector {
-	String base="ec2-52-91-88-255.compute-1.amazonaws.com";
-	//String base="localhost";
+	//String base="ec2-52-91-88-255.compute-1.amazonaws.com";
+	String base="localhost";
 	Connection conn = null;
 
 	public HnHDBConnector(){
@@ -75,7 +75,7 @@ public class HnHDBConnector {
 		return user;
 	}
 	
-	public ResultSet getResultsSet(String quary){
+	public synchronized ResultSet getResultsSet(String quary){
 		Statement stmt = null;
 		ResultSet rs = null;
 
