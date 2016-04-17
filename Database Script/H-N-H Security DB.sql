@@ -109,3 +109,7 @@ ALTER TABLE  `rooms` ADD FOREIGN KEY (  `floor_plan_id` ) REFERENCES `hnh-db`.`f
 `id`
 ) ON DELETE CASCADE ON UPDATE CASCADE ;
 
+
+INSERT INTO `hnh-db`.`users` (`id`, `username`, `name`, `password`, `accountType`) VALUES ('1', 'root', 'root', 'themainrootuseisthebose', 'admin');
+INSERT INTO `hnh-db`.`users` (`username`, `name`, `password`) VALUES ('emanuelp7', 'Emanual Peters', '1234567');
+INSERT INTO `hnh-db`.`floor_plans` (`id`, `userid`, `name`, `picture`) VALUES ('1', '1', 'global', 'none');
