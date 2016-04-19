@@ -1,11 +1,21 @@
 package entities;
 
+import org.json.simple.JSONObject;
+
 public class Sensor {
 	long id, floorPlanId;
 	boolean enabled;
 	int xpos, ypos;
 	
 	
+	public Sensor(long id, long floorPlanId, int xpos, int ypos, boolean enabled) {
+		super();
+		this.id = id;
+		this.floorPlanId = floorPlanId;
+		this.enabled = enabled;
+		this.xpos = xpos;
+		this.ypos = ypos;
+	}
 	public long getId() {
 		return id;
 	}
@@ -37,8 +47,15 @@ public class Sensor {
 		this.ypos = ypos;
 	}
 	
-	/*public String toJSON(){
-		
-	}*/
+	@SuppressWarnings("unchecked")
+	public JSONObject toJSON(){
+		JSONObject outObj = new JSONObject();
+		outObj.put("id", this.id);
+		outObj.put("fp_id", this.floorPlanId);
+		outObj.put("xpos", new Integer(this.xpos));
+		outObj.put("ypos", new Integer(this.ypos));
+		outObj.put("enabled", new Boolean(this.enabled));
+		return outObj;
+	}
 	
 }

@@ -8,6 +8,7 @@ import java.util.Properties;
 
 import com.mysql.jdbc.Connection;
 
+import entities.Sensor;
 import entities.User;
 
 public class HnHDBConnector {
@@ -75,13 +76,38 @@ public class HnHDBConnector {
 		return user;
 	}
 	
+	public Sensor getSensorById(long id){
+		Sensor sensor=null;
+		ResultSet rs = getResultsSet("SELECT * FROM sensors WHERE id='"+
+		id+"'");
+		if(rs!=null){
+			try {
+				if(rs.next()){
+					return new Sensor(rs.getLong("id"),rs.getLong("floor_plan_id"),
+					rs.getInt("floor_plan_xpos"),rs.getInt("floor_plan_xpos"),
+					rs.getBoolean("enabled"));
+				}
+				System.out.println(rs.getString("name"));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+		return sensor;
+	}
+	
+	public void createSensor(long id){
+		String sql="INSERT INTO `hnh-db`.`sensors` (`id`, `floor_plan_id`, `name`, `enabled`) VALUES ('"+id+"', '1', 'unknown', '1');";
+		getResultsSet(sql);
+	}
+	
 	public synchronized ResultSet getResultsSet(String quary){
 		Statement stmt = null;
 		ResultSet rs = null;
 
 		try {
 		    stmt = conn.createStatement();
-		    rs = stmt.executeQuery(quary);
+		    //rs = stmt.executeQuery(quary);
 
 		    // or alternatively, if you don't know ahead of time that
 		    // the query will be a SELECT...
