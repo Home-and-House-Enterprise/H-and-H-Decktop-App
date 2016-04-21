@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -14,6 +15,8 @@ import dataManager.HnHDBConnector;
 import entities.Sensor;
 
 public class HnHNetworkConnector implements Runnable {
+	static ArrayList<HnHNetworkConnector> connections =
+			new ArrayList<HnHNetworkConnector>();
 	HnHDBConnector db;
 	PrintWriter output;
 	BufferedReader input;
@@ -21,6 +24,7 @@ public class HnHNetworkConnector implements Runnable {
 	String IPAddress;
 	private boolean stop;
 	static int count;
+	long ID=0;
 
 	public HnHNetworkConnector(Socket accept, HnHDBConnector db) {
 		this.client=accept;
@@ -33,7 +37,7 @@ public class HnHNetworkConnector implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		connections.add(this);
 		count++;
 	}
 	public void run() {
@@ -54,6 +58,23 @@ public class HnHNetworkConnector implements Runnable {
 						if(info.containsKey("messageType")){
 							String request=(String) info.get("messageType");
 						//	System.out.println(info.toJSONString());
+							if(request.equals("setup")){
+								this.ID = (Long)info.get("id");
+							}
+							if(request.equals("arm")){
+								System.out.println("brodcast arm");
+								//broadcast
+								for(HnHNetworkConnector con : connections){
+									con.send(info);
+								}
+							}
+							if(request.equals("disarm")){
+								System.out.println("brodcast disarm");
+								//broadcast
+								for(HnHNetworkConnector con : connections){
+									con.send(info);
+								}
+							}
 							if(request.equals("request")){
 								processRequest(info);
 							}
@@ -82,9 +103,12 @@ public class HnHNetworkConnector implements Runnable {
 			}		
 		}
 		count--;
+		connections.remove(this);
 	}
 
-
+	protected void send(JSONObject message){
+		output.println(message.toJSONString());
+	}
 
 	@SuppressWarnings("unchecked")
 	private void processCreate(JSONObject request) {

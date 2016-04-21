@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data Controllers\HnHServerConnector.cs" />
     <Compile Include="Forms\ContactSupport.cs">
       <SubType>Form</SubType>
     </Compile>

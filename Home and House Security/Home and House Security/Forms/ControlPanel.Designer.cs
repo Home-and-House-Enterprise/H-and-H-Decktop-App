@@ -30,10 +30,12 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.viewfp = new System.Windows.Forms.Button();
             this.myAccount = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.viewfp = new System.Windows.Forms.Button();
+            this.arm = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -59,6 +61,17 @@
             this.panel1.Size = new System.Drawing.Size(232, 288);
             this.panel1.TabIndex = 2;
             // 
+            // viewfp
+            // 
+            this.viewfp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewfp.Location = new System.Drawing.Point(25, 77);
+            this.viewfp.Name = "viewfp";
+            this.viewfp.Size = new System.Drawing.Size(185, 35);
+            this.viewfp.TabIndex = 0;
+            this.viewfp.Text = "View Floor Plans";
+            this.viewfp.UseVisualStyleBackColor = true;
+            this.viewfp.Click += new System.EventHandler(this.viewfp_Click);
+            // 
             // myAccount
             // 
             this.myAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -72,21 +85,23 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel2.Controls.Add(this.arm);
             this.panel2.Location = new System.Drawing.Point(323, 66);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(232, 288);
             this.panel2.TabIndex = 3;
             // 
-            // viewfp
+            // arm
             // 
-            this.viewfp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewfp.Location = new System.Drawing.Point(25, 77);
-            this.viewfp.Name = "viewfp";
-            this.viewfp.Size = new System.Drawing.Size(185, 35);
-            this.viewfp.TabIndex = 0;
-            this.viewfp.Text = "View Floor Plans";
-            this.viewfp.UseVisualStyleBackColor = true;
-            this.viewfp.Click += new System.EventHandler(this.viewfp_Click);
+            this.arm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arm.ForeColor = System.Drawing.Color.Red;
+            this.arm.Location = new System.Drawing.Point(26, 21);
+            this.arm.Name = "arm";
+            this.arm.Size = new System.Drawing.Size(185, 35);
+            this.arm.TabIndex = 0;
+            this.arm.Text = "ARM SYSTEM!";
+            this.arm.UseVisualStyleBackColor = true;
+            this.arm.Click += new System.EventHandler(this.arm_Click);
             // 
             // ControlPanel
             // 
@@ -101,6 +116,7 @@
             this.Text = "Control Panel";
             this.Load += new System.EventHandler(this.ControlPanel_Load);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,5 +129,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button myAccount;
         private System.Windows.Forms.Button viewfp;
+        private System.Windows.Forms.Button arm;
     }
 }

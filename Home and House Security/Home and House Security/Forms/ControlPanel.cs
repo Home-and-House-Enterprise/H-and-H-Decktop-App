@@ -1,4 +1,5 @@
-﻿using Home_and_House_Security.Forms;
+﻿using Home_and_House_Security.Data_Controllers;
+using Home_and_House_Security.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,15 @@ namespace Home_and_House_Security
     {
         FloorPlans fp;
         User user;
+        HnHServerConnector server;
+        bool armed = false;
         public ControlPanel(User userIn)
         {
             InitializeComponent();
             user = userIn;
             fp = new FloorPlans();
+            server = new HnHServerConnector();
+            //get current status armed/disarmed
         }
 
         private void ControlPanel_Load(object sender, EventArgs e)
@@ -30,6 +35,29 @@ namespace Home_and_House_Security
         private void viewfp_Click(object sender, EventArgs e)
         {
             fp.ShowDialog(this);
+        }
+
+        private void arm_Click(object sender, EventArgs e)
+        {
+            Message m = new Message();
+            if (armed== false)
+            {
+                m.messageType = "arm";
+                m.id = user.id;
+                server.send(m);
+                arm.Text = "DISARM SYSTEM!";
+                armed = true;
+            }
+            else
+            {
+                m.messageType = "disarm";
+                m.id = user.id;
+                server.send(m);
+                arm.Text = "ARM SYSTEM!";
+                armed = false;
+            }
+
+
         }
     }
 }

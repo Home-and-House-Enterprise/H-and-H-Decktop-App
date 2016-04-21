@@ -11,5 +11,8 @@ namespace Home_and_House_Security
         public string name { get; set; }
         public string type { get; set; }
         public string message { get; set; }
+        public string messageType { get; set; }
+        public ulong id { get; set; }
+        public string status { get; set; }
     }
 }
