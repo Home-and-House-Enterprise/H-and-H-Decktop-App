@@ -25,6 +25,7 @@ public class HnHNetworkConnector implements Runnable {
 	private boolean stop;
 	static int count;
 	long ID=0;
+	String TYPE=null;
 
 	public HnHNetworkConnector(Socket accept, HnHDBConnector db) {
 		this.client=accept;
@@ -59,21 +60,7 @@ public class HnHNetworkConnector implements Runnable {
 							String request=(String) info.get("messageType");
 						//	System.out.println(info.toJSONString());
 							if(request.equals("setup")){
-								this.ID = (Long)info.get("id");
-							}
-							if(request.equals("arm")){
-								System.out.println("brodcast arm");
-								//broadcast
-								for(HnHNetworkConnector con : connections){
-									con.send(info);
-								}
-							}
-							if(request.equals("disarm")){
-								System.out.println("brodcast disarm");
-								//broadcast
-								for(HnHNetworkConnector con : connections){
-									con.send(info);
-								}
+								processSetup(info);
 							}
 							if(request.equals("request")){
 								processRequest(info);
@@ -143,6 +130,53 @@ public class HnHNetworkConnector implements Runnable {
 		}
 		
 	}
+	/**
+	 * Handles all the request ot update the sysytem
+	 * @param request
+	 */
+	private void processUpdate(JSONObject request){
+		if(request.containsKey("type")){
+			String type=(String) request.get("type");
+			if(type.equals("systemStatus")){
+				String value=(String) request.get("value");
+				//arm the system
+				if(value.equals("arm")){
+					System.out.println("brodcast arm");
+					//broadcast
+					for(HnHNetworkConnector con : connections){
+						con.send(request);
+					}
+				}
+				//disarm the system
+				else if(value.equals("disarm")){
+					System.out.println("brodcast disarm");
+					//broadcast
+					for(HnHNetworkConnector con : connections){
+						con.send(request);
+					}
+				}
+			}
+			if(type.equals("sensorStatus")){
+				String value=(String) request.get("value");
+				//arm the system
+				if(value.equals("enabled")){
+					System.out.println("brodcast arm");
+					//broadcast
+					for(HnHNetworkConnector con : connections){
+						con.send(request);
+					}
+				}
+				//disarm the system
+				else if(value.equals("disables")){
+					System.out.println("brodcast disarm");
+					//broadcast
+					for(HnHNetworkConnector con : connections){
+						con.send(request);
+					}
+				}
+			}
+		}
+	}
 	@SuppressWarnings("unchecked")
 	private void processRequest(JSONObject request){
 		JSONObject outObj = new JSONObject();
@@ -176,27 +210,36 @@ public class HnHNetworkConnector implements Runnable {
 			}
 		}
 		catch(Exception e){
-			outObj.put("status", "failed");
-			outObj.put("type", "request");
-			output.println(outObj.toJSONString());
+			sendFailedStatus("request");
 		}
-		/*
-		 
-		 */
+		
+	}
+	
+	private void processSetup(JSONObject request){
+		this.ID = (Long)request.get("id");
+		this.TYPE = (String)request.get("type");
+		if(TYPE!=null){
+			sendSuccessStatus("setup");
+		}
+		
+	}
+	
+	private void processAlert(JSONObject request){
+		sendSuccessStatus("alert");
 	}
 
 	@SuppressWarnings("unchecked")
-	private void processUpdate(JSONObject request){
+	private void sendSuccessStatus(String type){
 		JSONObject outObj = new JSONObject();
 		outObj.put("status", "success");
-		outObj.put("type", "update");
+		outObj.put("type",type);
 		output.println(outObj.toJSONString());
 	}
 	@SuppressWarnings("unchecked")
-	private void processAlert(JSONObject request){
+	private void sendFailedStatus(String type){
 		JSONObject outObj = new JSONObject();
-		outObj.put("status", "success");
-		outObj.put("type", "Alert");
+		outObj.put("status", "failed");
+		outObj.put("type",type);
 		output.println(outObj.toJSONString());
 	}
 }

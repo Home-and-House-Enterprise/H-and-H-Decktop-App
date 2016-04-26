@@ -86,8 +86,19 @@ CREATE TABLE IF NOT EXISTS `videos` (
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci AUTO_INCREMENT=1 ;
 
+CREATE TABLE IF NOT EXISTS `settings` (
+  `user_id` bigint(20) NOT NULL,
+  `key` varchar(40) NOT NULL,
+  `value` varchar(400) DEFAULT NULL,
+  `enabled` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`user_id`,`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 ALTER TABLE  `floor_plans` ADD FOREIGN KEY (  `userid` ) REFERENCES  `hnh-db`.`users` (
+`id`
+) ON DELETE CASCADE ON UPDATE CASCADE ;
+
+ALTER TABLE  `settings` ADD FOREIGN KEY (  `user_id` ) REFERENCES  `hnh-db`.`users` (
 `id`
 ) ON DELETE CASCADE ON UPDATE CASCADE ;
 

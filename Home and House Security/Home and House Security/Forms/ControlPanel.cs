@@ -42,7 +42,9 @@ namespace Home_and_House_Security
             Message m = new Message();
             if (armed== false)
             {
-                m.messageType = "arm";
+                m.messageType = "update";
+                m.type = "systemStatus";
+                m.value = "arm";
                 m.id = user.id;
                 server.send(m);
                 arm.Text = "DISARM SYSTEM!";
@@ -50,7 +52,9 @@ namespace Home_and_House_Security
             }
             else
             {
-                m.messageType = "disarm";
+                m.messageType = "update";
+                m.type = "systemStatus";
+                m.value = "disarm";
                 m.id = user.id;
                 server.send(m);
                 arm.Text = "ARM SYSTEM!";
