@@ -5,13 +5,16 @@ using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Home_and_House_Security.Data_Controllers
 {
     class HnHServerConnector
     {
         String server = "ec2-52-91-88-255.compute-1.amazonaws.com";
+        Queue<Message> messages = new Queue<Message>();
         TcpClient client;
         NetworkStream stream;
         StreamReader reader;
@@ -36,6 +39,27 @@ namespace Home_and_House_Security.Data_Controllers
                 Console.WriteLine("SocketException: {0}", e);
             }
         }
+
+        internal void init(ulong id)
+        {
+            Message m = new Message();
+            m.messageType = "setup";
+            m.type = "user";
+            m.id = id;
+            send(m);
+            Message responce = recieveMessage();
+            if (responce.status == "failed")
+            {
+                send(m);
+                responce = recieveMessage();
+            }
+            if (responce.status == "success")
+                Console.WriteLine("Server is ready");
+            ThreadStart childref = new ThreadStart(listen);
+            Thread childThread = new Thread(childref);
+            childThread.Start();
+        }
+
         public void send(Message message)
         {
             string json =JsonConvert.SerializeObject(message);
@@ -49,14 +73,39 @@ namespace Home_and_House_Security.Data_Controllers
             stream.Write(data, 0, data.Length);
             Console.WriteLine("Sent: {0}", message);
         }
-        public Message recieveMessage()
+        private void listen()
+        {
+            while (true)
+            {
+                Message m = recieveMessage();
+                if (m.messageType != "alert")
+                {
+                    messages.Enqueue(m);
+                }
+                else
+                {
+                    MessageBox.Show("Alarm Was Triggered");
+                }
+                Console.Write("new Message");
+            }
+        }
+        public Message getMessage()
+        {
+            if (messages.Count > 0)
+            {
+                return messages.Dequeue();
+            }
+            else
+                return null;
+        }
+        private Message recieveMessage()
         {
             String response = recieve();
             Message data = JsonConvert.DeserializeObject<Message>(response);
             return data;
         }
 
-        public String recieve()
+        private String recieve()
         {
             try
             {

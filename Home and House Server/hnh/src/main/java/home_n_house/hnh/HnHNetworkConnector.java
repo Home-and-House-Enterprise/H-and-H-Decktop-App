@@ -51,6 +51,7 @@ public class HnHNetworkConnector implements Runnable {
 				if(message!=null){
 					try {
 						info= (JSONObject)parser.parse(message);
+						//System.out.println(message);
 					} catch (ParseException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -91,10 +92,6 @@ public class HnHNetworkConnector implements Runnable {
 		}
 		count--;
 		connections.remove(this);
-	}
-
-	protected void send(JSONObject message){
-		output.println(message.toJSONString());
 	}
 
 	@SuppressWarnings("unchecked")
@@ -141,30 +138,26 @@ public class HnHNetworkConnector implements Runnable {
 				String value=(String) request.get("value");
 				//arm the system
 				if(value.equals("arm")){
-					System.out.println("brodcast arm");
-					//broadcast
-					for(HnHNetworkConnector con : connections){
-						con.send(request);
-					}
+					if(this.TYPE=="house")
+						sendToUser(this.ID, request);
+					else
+						sendToHouse(this.ID, request);
 				}
 				//disarm the system
 				else if(value.equals("disarm")){
-					System.out.println("brodcast disarm");
-					//broadcast
-					for(HnHNetworkConnector con : connections){
-						con.send(request);
-					}
+					if(this.TYPE=="house")
+						sendToUser(this.ID, request);
+					else
+						sendToHouse(this.ID, request);
 				}
 			}
 			if(type.equals("sensorStatus")){
 				String value=(String) request.get("value");
 				//arm the system
 				if(value.equals("enabled")){
-					System.out.println("brodcast arm");
+					//System.out.println("brodcast arm");
 					//broadcast
-					for(HnHNetworkConnector con : connections){
-						con.send(request);
-					}
+					
 				}
 				//disarm the system
 				else if(value.equals("disables")){
@@ -225,6 +218,7 @@ public class HnHNetworkConnector implements Runnable {
 	}
 	
 	private void processAlert(JSONObject request){
+		sendToUser(this.ID,request);
 		sendSuccessStatus("alert");
 	}
 
@@ -241,5 +235,27 @@ public class HnHNetworkConnector implements Runnable {
 		outObj.put("status", "failed");
 		outObj.put("type",type);
 		output.println(outObj.toJSONString());
+	}
+	
+	private void sendToHouse(long id, JSONObject request) {
+		for(HnHNetworkConnector con : connections){
+			if(id==con.ID){
+				if(con.TYPE.equals("house")){
+					con.send(request);
+				}			
+			}
+		}
+	}
+	private void sendToUser(long id, JSONObject request){
+		for(HnHNetworkConnector con : connections){
+			if(id==con.ID){
+				if(con.TYPE.equals("user")){
+					con.send(request);
+				}			
+			}
+		}
+	}
+	protected void send(JSONObject message){
+		output.println(message.toJSONString());
 	}
 }

@@ -88,10 +88,10 @@ CREATE TABLE IF NOT EXISTS `videos` (
 
 CREATE TABLE IF NOT EXISTS `settings` (
   `user_id` bigint(20) NOT NULL,
-  `key` varchar(40) NOT NULL,
+  `name` varchar(40) NOT NULL,
   `value` varchar(400) DEFAULT NULL,
   `enabled` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`user_id`,`key`)
+  PRIMARY KEY (`user_id`,`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 ALTER TABLE  `floor_plans` ADD FOREIGN KEY (  `userid` ) REFERENCES  `hnh-db`.`users` (

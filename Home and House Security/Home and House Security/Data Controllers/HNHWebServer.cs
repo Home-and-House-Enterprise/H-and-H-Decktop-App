@@ -18,6 +18,7 @@ namespace Home_and_House_Security
             WebRequest request = WebRequest.Create(url+target);
             // Set the Method property of the request to POST.
             request.Method = "POST";
+            request.Timeout = 1000;
             // Create POST data and convert it to a byte array.
             byte[] byteArray = Encoding.UTF8.GetBytes(postData);
             // Set the ContentType property of the WebRequest.

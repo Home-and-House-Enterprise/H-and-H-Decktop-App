@@ -24,6 +24,7 @@ namespace Home_and_House_Security
             user = userIn;
             fp = new FloorPlans();
             server = new HnHServerConnector();
+            server.init(user.id);
             //get current status armed/disarmed
         }
 
