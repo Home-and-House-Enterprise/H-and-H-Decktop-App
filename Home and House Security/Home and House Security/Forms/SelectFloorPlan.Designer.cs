@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.fplist = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -38,15 +38,15 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
+            // fplist
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(174, 68);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(182, 204);
-            this.listBox1.TabIndex = 0;
+            this.fplist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fplist.FormattingEnabled = true;
+            this.fplist.ItemHeight = 20;
+            this.fplist.Location = new System.Drawing.Point(174, 68);
+            this.fplist.Name = "fplist";
+            this.fplist.Size = new System.Drawing.Size(182, 204);
+            this.fplist.TabIndex = 0;
             // 
             // panel1
             // 
@@ -117,7 +117,7 @@
             this.ClientSize = new System.Drawing.Size(368, 309);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.fplist);
             this.Name = "SelectFloorPlan";
             this.Text = "SelectFloorPlan";
             this.panel1.ResumeLayout(false);
@@ -128,7 +128,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox fplist;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;

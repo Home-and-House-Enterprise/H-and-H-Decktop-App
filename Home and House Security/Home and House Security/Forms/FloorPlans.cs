@@ -13,15 +13,17 @@ namespace Home_and_House_Security.Forms
     public partial class FloorPlans : Form
     {
         User mainUser;
+        SelectFloorPlan sfp;
         public FloorPlans(User user)
         {
             mainUser = user;
             InitializeComponent();
+            sfp = new SelectFloorPlan(user);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            sfp.ShowDialog(this);
         }
     }
 }
