@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FloorPlans));
             this.pfView = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cancel = new System.Windows.Forms.Button();
             this.selectfp = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -50,18 +50,19 @@
             this.pfView.TabIndex = 0;
             this.pfView.TabStop = false;
             // 
-            // button1
+            // cancel
             // 
-            this.button1.Location = new System.Drawing.Point(19, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "New Floor Plan";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cancel.Location = new System.Drawing.Point(331, 3);
+            this.cancel.Name = "cancel";
+            this.cancel.Size = new System.Drawing.Size(99, 23);
+            this.cancel.TabIndex = 1;
+            this.cancel.Text = "Cancel";
+            this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
             // selectfp
             // 
-            this.selectfp.Location = new System.Drawing.Point(124, 3);
+            this.selectfp.Location = new System.Drawing.Point(16, 3);
             this.selectfp.Name = "selectfp";
             this.selectfp.Size = new System.Drawing.Size(99, 23);
             this.selectfp.TabIndex = 1;
@@ -71,16 +72,17 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(229, 3);
+            this.button3.Location = new System.Drawing.Point(121, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 23);
             this.button3.TabIndex = 1;
             this.button3.Text = "Add Sensor";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(334, 3);
+            this.button4.Location = new System.Drawing.Point(226, 3);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(99, 23);
             this.button4.TabIndex = 1;
@@ -93,7 +95,7 @@
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.selectfp);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.cancel);
             this.panel1.Location = new System.Drawing.Point(12, 321);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(447, 51);
@@ -132,7 +134,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pfView;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button selectfp;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;

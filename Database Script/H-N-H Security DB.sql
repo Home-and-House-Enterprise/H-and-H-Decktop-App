@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `floor_plans` (
   `userid` bigint(20) NOT NULL,
   `name` varchar(40) NOT NULL,
   `picture` varchar(120) DEFAULT NULL,
-  PRIMARY KEY (`id`,`userid`),
+  PRIMARY KEY ('userid','name'),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci AUTO_INCREMENT=1 ;
 /*

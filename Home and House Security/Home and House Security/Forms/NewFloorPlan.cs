@@ -78,6 +78,11 @@ namespace Home_and_House_Security.Forms
                     File.Delete(newName);//puts the original name back
                     this.Close();
                 }
+                else
+                {
+                    MessageBox.Show("Error Creating Floor Plan\n"+
+                        "Check for duplicate names!\nFloor Plans can't have duplicate names!");
+                }
             }
 
         }

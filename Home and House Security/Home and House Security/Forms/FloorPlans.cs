@@ -14,16 +14,28 @@ namespace Home_and_House_Security.Forms
     {
         User mainUser;
         SelectFloorPlan sfp;
+        FindSensor fs;
         public FloorPlans(User user)
         {
             mainUser = user;
             InitializeComponent();
             sfp = new SelectFloorPlan(user);
+            fs = new FindSensor(1);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             sfp.ShowDialog(this);
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            fs.ShowDialog(this);
         }
     }
 }
