@@ -18,17 +18,17 @@ namespace Home_and_House_Security
             sftp = new Sftp(host,user,pass);
         }
 
-        public void sendImage()
+        public void sendImage(string image)
         {
             sftp.Connect();
-            sftp.Put("like a boss.jpg", "/home/hnh-user/images");
+            sftp.Put(image, "/home/hnh-user/images");
             sftp.Close();
         }
 
-        public void getImage()
+        public void getImage(string image)
         {
             sftp.Connect();
-            sftp.Get("/home/hnh-user/images/boss2.jpg");
+            sftp.Get("/home/hnh-user/images/"+image);
             sftp.Close();
         }
 

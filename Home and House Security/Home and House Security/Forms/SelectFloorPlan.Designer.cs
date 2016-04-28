@@ -30,7 +30,7 @@
         {
             this.fplist = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.cancel = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.cancel);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -60,14 +60,15 @@
             this.panel1.Size = new System.Drawing.Size(138, 204);
             this.panel1.TabIndex = 3;
             // 
-            // button4
+            // cancel
             // 
-            this.button4.Location = new System.Drawing.Point(21, 162);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Cancel";
-            this.button4.UseVisualStyleBackColor = true;
+            this.cancel.Location = new System.Drawing.Point(21, 162);
+            this.cancel.Name = "cancel";
+            this.cancel.Size = new System.Drawing.Size(99, 23);
+            this.cancel.TabIndex = 1;
+            this.cancel.Text = "Cancel";
+            this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
             // button3
             // 
@@ -95,6 +96,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "New Floor Plan";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -130,7 +132,7 @@
 
         private System.Windows.Forms.ListBox fplist;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
