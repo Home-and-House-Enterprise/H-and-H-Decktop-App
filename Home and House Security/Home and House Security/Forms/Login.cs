@@ -44,7 +44,7 @@ namespace Home_and_House_Security
                 this.Hide();
                 User mainUser= HNHWebServer.doJSONPost<User>("get-user.php", "username=" + username.Text +
                 "&password=" + password.Text);
-                ControlPanel cp = new ControlPanel(mainUser);
+                ControlPanel cp = new ControlPanel(this,mainUser);
                 cp.Show();
             }
             else{

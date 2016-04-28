@@ -14,18 +14,21 @@ namespace Home_and_House_Security
 {
     public partial class ControlPanel : Form
     {
+        Login main;
         FloorPlans fp;
         User user;
         HnHServerConnector server;
         bool armed = false;
-        public ControlPanel(User userIn)
+        public ControlPanel(Login main,User userIn)
         {
             InitializeComponent();
             user = userIn;
-            fp = new FloorPlans();
+            fp = new FloorPlans(user);
             server = new HnHServerConnector();
+            this.main = main;
             server.init(user.id);
             //get current status armed/disarmed
+            this.FormClosing += Form1_FormClosing;
         }
 
         private void ControlPanel_Load(object sender, EventArgs e)
@@ -64,5 +67,12 @@ namespace Home_and_House_Security
 
 
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            server.close();
+            main.Show();
+        }
     }
+
 }

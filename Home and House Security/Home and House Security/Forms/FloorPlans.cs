@@ -12,9 +12,16 @@ namespace Home_and_House_Security.Forms
 {
     public partial class FloorPlans : Form
     {
-        public FloorPlans()
+        User mainUser;
+        public FloorPlans(User user)
         {
+            mainUser = user;
             InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

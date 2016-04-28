@@ -14,10 +14,12 @@ namespace Home_and_House_Security.Data_Controllers
     class HnHServerConnector
     {
         String server = "ec2-52-91-88-255.compute-1.amazonaws.com";
+        bool shutDown = false;
         Queue<Message> messages = new Queue<Message>();
         TcpClient client;
         NetworkStream stream;
         StreamReader reader;
+        Thread childThread;
 
         public HnHServerConnector()
         {
@@ -56,7 +58,7 @@ namespace Home_and_House_Security.Data_Controllers
             if (responce.status == "success")
                 Console.WriteLine("Server is ready");
             ThreadStart childref = new ThreadStart(listen);
-            Thread childThread = new Thread(childref);
+            childThread = new Thread(childref);
             childThread.Start();
         }
 
@@ -75,16 +77,19 @@ namespace Home_and_House_Security.Data_Controllers
         }
         private void listen()
         {
-            while (true)
+            while (shutDown==false)
             {
                 Message m = recieveMessage();
-                if (m.messageType != "alert")
+                if (m != null)
                 {
-                    messages.Enqueue(m);
-                }
-                else
-                {
-                    MessageBox.Show("Alarm Was Triggered");
+                    if (m.messageType != "alert")
+                    {
+                        messages.Enqueue(m);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Alarm Was Triggered");
+                    }
                 }
                 Console.Write("new Message");
             }
@@ -100,9 +105,18 @@ namespace Home_and_House_Security.Data_Controllers
         }
         private Message recieveMessage()
         {
-            String response = recieve();
-            Message data = JsonConvert.DeserializeObject<Message>(response);
-            return data;
+            try
+            {
+                String response = recieve();
+                Message data = JsonConvert.DeserializeObject<Message>(response);
+                return data;
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("Error Recieving message");
+                return null;
+            }
         }
 
         private String recieve()
@@ -134,8 +148,18 @@ namespace Home_and_House_Security.Data_Controllers
         public void close()
         {
             // Close everything.
-            stream.Close();
-            client.Close();
+            try
+            {
+                shutDown = true;
+                stream.Close();
+                client.Close();
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("error Closing");
+            }
         }
 
         static void Connect(String server, String message)
