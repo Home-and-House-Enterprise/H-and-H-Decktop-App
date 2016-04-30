@@ -34,6 +34,7 @@ namespace Home_and_House_Security.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             nfp.ShowDialog(this);
+            updateList();
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -47,7 +48,8 @@ namespace Home_and_House_Security.Forms
             {
                 if (m.status == "success")
                 {
-                    foreach(FloorPlan fp in m.floorPlans)
+                    fplist.Items.Clear();
+                    foreach (FloorPlan fp in m.floorPlans)
                     {
                         fplist.Items.Add(fp.name);
                     }

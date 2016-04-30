@@ -96,6 +96,7 @@ namespace Home_and_House_Security.Forms
             {
                 if (m.status == "success")
                 {
+                    slist.Items.Clear();
                     foreach (Sensor s in m.sensors)
                     {
                         slist.Items.Add(s.name);
