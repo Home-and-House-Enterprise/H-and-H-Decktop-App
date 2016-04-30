@@ -18,6 +18,8 @@ namespace Home_and_House_Security.Forms
         SelectFloorPlan sfp;
         FindSensor fs;
         MediaStorageConnector media;
+        EditSensors es;
+
         public FloorPlans(User user)
         {
             mainUser = user;
@@ -25,6 +27,7 @@ namespace Home_and_House_Security.Forms
             sfp = new SelectFloorPlan(user);
             fs = new FindSensor(1);
             media = new MediaStorageConnector();
+            es = new EditSensors();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -65,7 +68,15 @@ namespace Home_and_House_Security.Forms
 
         private void editSensors_Click(object sender, EventArgs e)
         {
-
+            if (sfp.selectedFloorPlan != null)
+            {
+                es.FloorPlanID = sfp.selectedFloorPlan.id;
+                es.ShowDialog(this);
+            }
+            else
+            {
+                MessageBox.Show("Must Select A floor Plan");
+            }
         }
     }
 }

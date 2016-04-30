@@ -14,11 +14,23 @@ namespace Home_and_House_Security.Forms
     public partial class EditSensors : Form
     {
         public ulong id;
-        public ulong fpID { get; set; }
+        private ulong fpID;
+        public ulong FloorPlanID
+        {
+            get {
+                return fpID;
+            }
+            set
+            {
+                fpID = value;
+                updateList();
+            }
+        }
         Sensor[] sensors;
         public EditSensors()
         {
             InitializeComponent();
+            updateList();
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -63,6 +75,7 @@ namespace Home_and_House_Security.Forms
                 {
                     if (m.status == "success")
                     {
+                        updateList();
                         MessageBox.Show("Sensor Updated successful!");
                     }
                 }
@@ -71,7 +84,7 @@ namespace Home_and_House_Security.Forms
 
         private void select_Click(object sender, EventArgs e)
         {
-            if (sensors[slist.SelectedIndex] == null) {
+            if (sensors[slist.SelectedIndex] != null) {
                 this.id = sensors[slist.SelectedIndex].id;
                 xPos.Text = sensors[slist.SelectedIndex].xpos + "";
                 yPos.Text = sensors[slist.SelectedIndex].ypos + "";
