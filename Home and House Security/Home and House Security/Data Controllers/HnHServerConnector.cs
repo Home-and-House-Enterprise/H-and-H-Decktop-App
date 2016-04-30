@@ -14,7 +14,7 @@ namespace Home_and_House_Security.Data_Controllers
     class HnHServerConnector
     {
         String server = "ec2-52-91-88-255.compute-1.amazonaws.com";
-        bool shutDown = false;
+        bool shutDown = false, connected=false;
         Queue<Message> messages = new Queue<Message>();
         TcpClient client;
         NetworkStream stream;
@@ -48,18 +48,29 @@ namespace Home_and_House_Security.Data_Controllers
             m.messageType = "setup";
             m.type = "user";
             m.id = id;
-            send(m);
-            Message responce = recieveMessage();
-            if (responce.status == "failed")
+
+            try
             {
                 send(m);
-                responce = recieveMessage();
+                Message responce = recieveMessage();
+                if (responce.status == "failed")
+                {
+                    send(m);
+                    responce = recieveMessage();
+                }
+                if (responce.status == "success")
+                    Console.WriteLine("Server is ready");
+                ThreadStart childref = new ThreadStart(listen);
+                childThread = new Thread(childref);
+                childThread.Start();
+                connected = true;
             }
-            if (responce.status == "success")
-                Console.WriteLine("Server is ready");
-            ThreadStart childref = new ThreadStart(listen);
-            childThread = new Thread(childref);
-            childThread.Start();
+            catch (Exception e)
+            {
+                connected = false;
+                MessageBox.Show("Could not establish Connection To serever!\n"
+                    +"Some Functionality Is limited");
+            }
         }
 
         public void send(Message message)
@@ -69,11 +80,17 @@ namespace Home_and_House_Security.Data_Controllers
         }
         public void send(String message)
         {
-            // Translate the passed message into ASCII and store it as a Byte array.
-            Byte[] data = System.Text.Encoding.ASCII.GetBytes(message+"\n");
-            // Send the message to the connected TcpServer. 
-            stream.Write(data, 0, data.Length);
-            Console.WriteLine("Sent: {0}", message);
+            if (connected)
+            {
+                // Translate the passed message into ASCII and store it as a Byte array.
+                Byte[] data = System.Text.Encoding.ASCII.GetBytes(message + "\n");
+                // Send the message to the connected TcpServer. 
+                stream.Write(data, 0, data.Length);
+                Console.WriteLine("Sent: {0}", message);
+            }
+            else
+                MessageBox.Show("This function is unavaliable\n"
+                    + "Could not connect to server");
         }
         private void listen()
         {

@@ -33,8 +33,9 @@
             this.viewfp = new System.Windows.Forms.Button();
             this.myAccount = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.arm = new System.Windows.Forms.Button();
             this.contact = new System.Windows.Forms.Button();
+            this.arm = new System.Windows.Forms.Button();
+            this.cameras = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +56,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.cameras);
             this.panel1.Controls.Add(this.viewfp);
             this.panel1.Controls.Add(this.myAccount);
             this.panel1.Location = new System.Drawing.Point(24, 66);
@@ -94,6 +96,17 @@
             this.panel2.Size = new System.Drawing.Size(232, 288);
             this.panel2.TabIndex = 3;
             // 
+            // contact
+            // 
+            this.contact.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contact.Location = new System.Drawing.Point(26, 77);
+            this.contact.Name = "contact";
+            this.contact.Size = new System.Drawing.Size(185, 35);
+            this.contact.TabIndex = 1;
+            this.contact.Text = "Contact Us";
+            this.contact.UseVisualStyleBackColor = true;
+            this.contact.Click += new System.EventHandler(this.contact_Click);
+            // 
             // arm
             // 
             this.arm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,16 +119,16 @@
             this.arm.UseVisualStyleBackColor = true;
             this.arm.Click += new System.EventHandler(this.arm_Click);
             // 
-            // contact
+            // cameras
             // 
-            this.contact.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contact.Location = new System.Drawing.Point(26, 77);
-            this.contact.Name = "contact";
-            this.contact.Size = new System.Drawing.Size(185, 35);
-            this.contact.TabIndex = 1;
-            this.contact.Text = "Contact Us";
-            this.contact.UseVisualStyleBackColor = true;
-            this.contact.Click += new System.EventHandler(this.contact_Click);
+            this.cameras.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cameras.Location = new System.Drawing.Point(24, 134);
+            this.cameras.Name = "cameras";
+            this.cameras.Size = new System.Drawing.Size(185, 35);
+            this.cameras.TabIndex = 1;
+            this.cameras.Text = "View Cameras";
+            this.cameras.UseVisualStyleBackColor = true;
+            this.cameras.Click += new System.EventHandler(this.cameras_Click);
             // 
             // ControlPanel
             // 
@@ -145,5 +158,6 @@
         private System.Windows.Forms.Button viewfp;
         private System.Windows.Forms.Button arm;
         private System.Windows.Forms.Button contact;
+        private System.Windows.Forms.Button cameras;
     }
 }

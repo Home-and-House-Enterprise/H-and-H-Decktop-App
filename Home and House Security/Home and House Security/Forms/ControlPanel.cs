@@ -83,6 +83,11 @@ namespace Home_and_House_Security
         {
             new MyAccount(user).ShowDialog(this);
         }
+
+        private void cameras_Click(object sender, EventArgs e)
+        {
+            new ViewCameras().ShowDialog(this);
+        }
     }
 
 }
