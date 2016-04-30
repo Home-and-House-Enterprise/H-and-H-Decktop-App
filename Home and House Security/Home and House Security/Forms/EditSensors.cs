@@ -107,9 +107,9 @@ namespace Home_and_House_Security.Forms
             Message m = HNHWebServer.doJSONPost<Message>("get-sensors.php", "fpid=" + fpID);
             if (m != null)
             {
+                slist.Items.Clear();
                 if (m.status == "success")
                 {
-                    slist.Items.Clear();
                     foreach (Sensor s in m.sensors)
                     {
                         slist.Items.Add(s.name);
