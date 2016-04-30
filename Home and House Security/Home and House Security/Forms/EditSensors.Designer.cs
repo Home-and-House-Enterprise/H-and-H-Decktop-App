@@ -42,6 +42,7 @@
             this.sEnable = new System.Windows.Forms.RadioButton();
             this.slist = new System.Windows.Forms.ListBox();
             this.sDisable = new System.Windows.Forms.RadioButton();
+            this.delete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,17 +103,18 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.delete);
             this.panel1.Controls.Add(this.cancel);
             this.panel1.Controls.Add(this.update);
             this.panel1.Controls.Add(this.select);
-            this.panel1.Location = new System.Drawing.Point(12, 197);
+            this.panel1.Location = new System.Drawing.Point(12, 190);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(280, 46);
+            this.panel1.Size = new System.Drawing.Size(280, 59);
             this.panel1.TabIndex = 25;
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(189, 12);
+            this.cancel.Location = new System.Drawing.Point(101, 32);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(81, 23);
             this.cancel.TabIndex = 1;
@@ -122,9 +124,9 @@
             // 
             // update
             // 
-            this.update.Location = new System.Drawing.Point(90, 12);
+            this.update.Location = new System.Drawing.Point(101, 7);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(93, 23);
+            this.update.Size = new System.Drawing.Size(81, 23);
             this.update.TabIndex = 1;
             this.update.Text = "Update";
             this.update.UseVisualStyleBackColor = true;
@@ -132,7 +134,7 @@
             // 
             // select
             // 
-            this.select.Location = new System.Drawing.Point(3, 12);
+            this.select.Location = new System.Drawing.Point(14, 7);
             this.select.Name = "select";
             this.select.Size = new System.Drawing.Size(81, 23);
             this.select.TabIndex = 1;
@@ -190,6 +192,16 @@
             this.sDisable.UseVisualStyleBackColor = true;
             this.sDisable.CheckedChanged += new System.EventHandler(this.sDisable_CheckedChanged);
             // 
+            // delete
+            // 
+            this.delete.Location = new System.Drawing.Point(188, 7);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(81, 23);
+            this.delete.TabIndex = 2;
+            this.delete.Text = "Delete";
+            this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
+            // 
             // EditSensors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,5 +243,6 @@
         private System.Windows.Forms.RadioButton sEnable;
         private System.Windows.Forms.ListBox slist;
         private System.Windows.Forms.RadioButton sDisable;
+        private System.Windows.Forms.Button delete;
     }
 }

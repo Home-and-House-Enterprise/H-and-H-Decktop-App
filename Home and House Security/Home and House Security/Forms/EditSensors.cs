@@ -136,6 +136,50 @@ namespace Home_and_House_Security.Forms
             }
         }
 
+        private void delete_Click(object sender, EventArgs e)
+        {
+            if (id != 0)
+            {
+                int fpXpos, fpYpos;
+                try
+                {
+                    fpXpos = Convert.ToInt32(xPos.Text);
+                    fpYpos = Convert.ToInt32(yPos.Text);
+                }
+                catch (FormatException f)
+                {
+                    MessageBox.Show("Sensor Must have a varlid X position\n" +
+                        "and Y position on the floor plan!");
+                    return;
+                }
+                if (name.Text.Trim() == "")
+                {
+                    MessageBox.Show("Sensor must Have a name!");
+                    return;
+                }
+                int enabledValue = 1;
+                if (sEnable.Checked)
+                {
+                    enabledValue = 1;
+                }
+                else
+                {
+                    enabledValue = 0;
+                }
+                Message m = HNHWebServer.doJSONPost<Message>("update-sensor.php", "name=" +
+                sensorName.Text + "&id=" + id + "&fpid=1&xpos=" + fpXpos + "&ypos=" + fpYpos
+                 + "&enabled=" + enabledValue);
+                if (m != null)
+                {
+                    if (m.status == "success")
+                    {
+                        updateList();
+                        MessageBox.Show("Sensor Updated successful!");
+                    }
+                }
+            }
+        }
+
         private void enabled_CheckedChanged(object sender, EventArgs e)
         {
              if (changed == false)
