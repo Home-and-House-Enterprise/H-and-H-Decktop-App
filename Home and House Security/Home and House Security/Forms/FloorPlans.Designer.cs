@@ -34,15 +34,15 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.editSensors = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fpView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fpView
             // 
-            this.fpView.Location = new System.Drawing.Point(56, 48);
+            this.fpView.Location = new System.Drawing.Point(52, 48);
             this.fpView.Name = "fpView";
             this.fpView.Size = new System.Drawing.Size(377, 267);
             this.fpView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -101,6 +101,16 @@
             this.panel1.Size = new System.Drawing.Size(447, 60);
             this.panel1.TabIndex = 2;
             // 
+            // editSensors
+            // 
+            this.editSensors.Location = new System.Drawing.Point(121, 32);
+            this.editSensors.Name = "editSensors";
+            this.editSensors.Size = new System.Drawing.Size(99, 23);
+            this.editSensors.TabIndex = 2;
+            this.editSensors.Text = "Edit Sensors";
+            this.editSensors.UseVisualStyleBackColor = true;
+            this.editSensors.Click += new System.EventHandler(this.editSensors_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -112,16 +122,6 @@
             this.label1.Size = new System.Drawing.Size(130, 35);
             this.label1.TabIndex = 3;
             this.label1.Text = "Floor Plan";
-            // 
-            // editSensors
-            // 
-            this.editSensors.Location = new System.Drawing.Point(121, 32);
-            this.editSensors.Name = "editSensors";
-            this.editSensors.Size = new System.Drawing.Size(99, 23);
-            this.editSensors.TabIndex = 2;
-            this.editSensors.Text = "Edit Sensors";
-            this.editSensors.UseVisualStyleBackColor = true;
-            this.editSensors.Click += new System.EventHandler(this.editSensors_Click);
             // 
             // FloorPlans
             // 

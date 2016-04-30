@@ -110,6 +110,12 @@
     </Compile>
     <Compile Include="Data Controllers\MediaStorageConnector.cs" />
     <Compile Include="Data Entities\Message.cs" />
+    <Compile Include="Forms\MyAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MyAccount.Designer.cs">
+      <DependentUpon>MyAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NewFloorPlan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MyAccount.resx">
+      <DependentUpon>MyAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewFloorPlan.resx">
       <DependentUpon>NewFloorPlan.cs</DependentUpon>
