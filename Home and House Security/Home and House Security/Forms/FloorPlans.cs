@@ -29,7 +29,10 @@ namespace Home_and_House_Security.Forms
         private void button2_Click(object sender, EventArgs e)
         {
             sfp.ShowDialog(this);
-            loadFloorPlan(sfp.selectedFloorPlan);
+            if (sfp.selectedFloorPlan==null)
+            {
+                loadFloorPlan(sfp.selectedFloorPlan);
+            }
         }
 
         private void cancel_Click(object sender, EventArgs e)
