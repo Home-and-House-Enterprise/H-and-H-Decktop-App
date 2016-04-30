@@ -39,8 +39,9 @@
             this.update = new System.Windows.Forms.Button();
             this.select = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.enabled = new System.Windows.Forms.RadioButton();
+            this.sEnable = new System.Windows.Forms.RadioButton();
             this.slist = new System.Windows.Forms.ListBox();
+            this.sDisable = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -151,18 +152,19 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Sensor Setup";
             // 
-            // enabled
+            // sEnable
             // 
-            this.enabled.AutoSize = true;
-            this.enabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enabled.ForeColor = System.Drawing.Color.White;
-            this.enabled.Location = new System.Drawing.Point(15, 162);
-            this.enabled.Name = "enabled";
-            this.enabled.Size = new System.Drawing.Size(138, 22);
-            this.enabled.TabIndex = 28;
-            this.enabled.TabStop = true;
-            this.enabled.Text = "Enable/Disable";
-            this.enabled.UseVisualStyleBackColor = true;
+            this.sEnable.AutoSize = true;
+            this.sEnable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sEnable.ForeColor = System.Drawing.Color.White;
+            this.sEnable.Location = new System.Drawing.Point(15, 162);
+            this.sEnable.Name = "sEnable";
+            this.sEnable.Size = new System.Drawing.Size(77, 22);
+            this.sEnable.TabIndex = 28;
+            this.sEnable.TabStop = true;
+            this.sEnable.Text = "Enable";
+            this.sEnable.UseVisualStyleBackColor = true;
+            this.sEnable.CheckedChanged += new System.EventHandler(this.enabled_CheckedChanged);
             // 
             // slist
             // 
@@ -174,14 +176,29 @@
             this.slist.Size = new System.Drawing.Size(182, 184);
             this.slist.TabIndex = 29;
             // 
+            // sDisable
+            // 
+            this.sDisable.AutoSize = true;
+            this.sDisable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sDisable.ForeColor = System.Drawing.Color.White;
+            this.sDisable.Location = new System.Drawing.Point(171, 162);
+            this.sDisable.Name = "sDisable";
+            this.sDisable.Size = new System.Drawing.Size(82, 22);
+            this.sDisable.TabIndex = 30;
+            this.sDisable.TabStop = true;
+            this.sDisable.Text = "Disable";
+            this.sDisable.UseVisualStyleBackColor = true;
+            this.sDisable.CheckedChanged += new System.EventHandler(this.sDisable_CheckedChanged);
+            // 
             // EditSensors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Blue;
             this.ClientSize = new System.Drawing.Size(525, 258);
+            this.Controls.Add(this.sDisable);
             this.Controls.Add(this.slist);
-            this.Controls.Add(this.enabled);
+            this.Controls.Add(this.sEnable);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sensorName);
@@ -211,7 +228,8 @@
         private System.Windows.Forms.Button update;
         private System.Windows.Forms.Button select;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton enabled;
+        private System.Windows.Forms.RadioButton sEnable;
         private System.Windows.Forms.ListBox slist;
+        private System.Windows.Forms.RadioButton sDisable;
     }
 }

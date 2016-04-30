@@ -12,9 +12,11 @@ namespace Home_and_House_Security.Forms
 {
     public partial class MyAccount : Form
     {
-        public MyAccount()
+        public MyAccount(User user)
         {
             InitializeComponent();
+            name.Text = user.name;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,6 +32,11 @@ namespace Home_and_House_Security.Forms
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

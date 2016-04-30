@@ -15,6 +15,7 @@ namespace Home_and_House_Security.Forms
     {
         public ulong id;
         private ulong fpID;
+        private bool changed = false, enable = true;
         public ulong FloorPlanID
         {
             get {
@@ -60,7 +61,7 @@ namespace Home_and_House_Security.Forms
                     return;
                 }
                 int enabledValue = 1;
-                if (enabled.Checked)
+                if (sEnable.Checked)
                 {
                     enabledValue = 1;
                 }
@@ -89,9 +90,10 @@ namespace Home_and_House_Security.Forms
                 xPos.Text = sensors[slist.SelectedIndex].xpos + "";
                 yPos.Text = sensors[slist.SelectedIndex].ypos + "";
                 sensorName.Text = sensors[slist.SelectedIndex].name;
-                enabled.Checked = sensors[slist.SelectedIndex].enabled;
-               // if (sensors[slist.SelectedIndex].enabled)
-               //  {
+                sEnable.Checked = sensors[slist.SelectedIndex].enabled;
+                sDisable.Checked = !sensors[slist.SelectedIndex].enabled;
+                // if (sensors[slist.SelectedIndex].enabled)
+                //  {
 
                 //  }
             }
@@ -117,6 +119,34 @@ namespace Home_and_House_Security.Forms
                     sensors = m.sensors;
                 }
             }
+
+        }
+
+        private void sDisable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (changed == false)
+            {
+                changed = true;
+                //enable = !enable;
+                sEnable.Checked = false;
+            }
+            else
+            {
+                changed = false;
+            }
+        }
+
+        private void enabled_CheckedChanged(object sender, EventArgs e)
+        {
+             if (changed == false)
+             {
+                 changed = true;
+                 //enable = !enable;
+                 sDisable.Checked = false;         
+             }
+             else{
+                 changed = false;
+             }
 
         }
     }
