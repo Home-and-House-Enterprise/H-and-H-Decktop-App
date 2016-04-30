@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data Controllers\HnHServerConnector.cs" />
+    <Compile Include="Data Entities\Camera.cs" />
     <Compile Include="Data Entities\FloorPlan.cs" />
     <Compile Include="Data Entities\Sensor.cs" />
     <Compile Include="Forms\ContactSupportForm.cs">

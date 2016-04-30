@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.camImage = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.selectfp = new System.Windows.Forms.Button();
+            this.zoomOut = new System.Windows.Forms.Button();
+            this.zoomIn = new System.Windows.Forms.Button();
+            this.selectCam = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.slist = new System.Windows.Forms.ListBox();
+            this.camlist = new System.Windows.Forms.ListBox();
             this.name = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.camImage)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,34 +53,54 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Cameras";
             // 
-            // pictureBox1
+            // camImage
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(179, 62);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(237, 211);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.camImage.Location = new System.Drawing.Point(179, 62);
+            this.camImage.Name = "camImage";
+            this.camImage.Size = new System.Drawing.Size(237, 211);
+            this.camImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.camImage.TabIndex = 5;
+            this.camImage.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.selectfp);
+            this.panel1.Controls.Add(this.zoomOut);
+            this.panel1.Controls.Add(this.zoomIn);
+            this.panel1.Controls.Add(this.selectCam);
             this.panel1.Controls.Add(this.cancel);
             this.panel1.Location = new System.Drawing.Point(12, 293);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(418, 41);
             this.panel1.TabIndex = 6;
             // 
-            // selectfp
+            // zoomOut
             // 
-            this.selectfp.Location = new System.Drawing.Point(3, 9);
-            this.selectfp.Name = "selectfp";
-            this.selectfp.Size = new System.Drawing.Size(99, 23);
-            this.selectfp.TabIndex = 1;
-            this.selectfp.Text = "Select Camera";
-            this.selectfp.UseVisualStyleBackColor = true;
+            this.zoomOut.Location = new System.Drawing.Point(213, 9);
+            this.zoomOut.Name = "zoomOut";
+            this.zoomOut.Size = new System.Drawing.Size(99, 23);
+            this.zoomOut.TabIndex = 3;
+            this.zoomOut.Text = "Zoom Out";
+            this.zoomOut.UseVisualStyleBackColor = true;
+            // 
+            // zoomIn
+            // 
+            this.zoomIn.Location = new System.Drawing.Point(108, 9);
+            this.zoomIn.Name = "zoomIn";
+            this.zoomIn.Size = new System.Drawing.Size(99, 23);
+            this.zoomIn.TabIndex = 2;
+            this.zoomIn.Text = "Zoom In";
+            this.zoomIn.UseVisualStyleBackColor = true;
+            // 
+            // selectCam
+            // 
+            this.selectCam.Location = new System.Drawing.Point(3, 9);
+            this.selectCam.Name = "selectCam";
+            this.selectCam.Size = new System.Drawing.Size(99, 23);
+            this.selectCam.TabIndex = 1;
+            this.selectCam.Text = "Select Camera";
+            this.selectCam.UseVisualStyleBackColor = true;
+            this.selectCam.Click += new System.EventHandler(this.selectfp_Click);
             // 
             // cancel
             // 
@@ -90,34 +110,17 @@
             this.cancel.TabIndex = 1;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
-            // button1
+            // camlist
             // 
-            this.button1.Location = new System.Drawing.Point(108, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Zoom In";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(213, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Zoom Out";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // slist
-            // 
-            this.slist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slist.FormattingEnabled = true;
-            this.slist.ItemHeight = 20;
-            this.slist.Location = new System.Drawing.Point(12, 87);
-            this.slist.Name = "slist";
-            this.slist.Size = new System.Drawing.Size(148, 184);
-            this.slist.TabIndex = 30;
+            this.camlist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.camlist.FormattingEnabled = true;
+            this.camlist.ItemHeight = 20;
+            this.camlist.Location = new System.Drawing.Point(12, 87);
+            this.camlist.Name = "camlist";
+            this.camlist.Size = new System.Drawing.Size(148, 184);
+            this.camlist.TabIndex = 30;
             // 
             // name
             // 
@@ -137,13 +140,13 @@
             this.BackColor = System.Drawing.Color.Blue;
             this.ClientSize = new System.Drawing.Size(459, 346);
             this.Controls.Add(this.name);
-            this.Controls.Add(this.slist);
+            this.Controls.Add(this.camlist);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.camImage);
             this.Controls.Add(this.label1);
             this.Name = "ViewCameras";
             this.Text = "View Cameras";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.camImage)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -153,13 +156,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox camImage;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button selectfp;
+        private System.Windows.Forms.Button selectCam;
         private System.Windows.Forms.Button cancel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox slist;
+        private System.Windows.Forms.Button zoomOut;
+        private System.Windows.Forms.Button zoomIn;
+        private System.Windows.Forms.ListBox camlist;
         private System.Windows.Forms.Label name;
     }
 }

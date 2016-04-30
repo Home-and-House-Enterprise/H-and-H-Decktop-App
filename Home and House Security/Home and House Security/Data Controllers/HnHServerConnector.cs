@@ -89,8 +89,8 @@ namespace Home_and_House_Security.Data_Controllers
                 Console.WriteLine("Sent: {0}", message);
             }
             else
-                MessageBox.Show("This function is unavaliable\n"
-                    + "Could not connect to server");
+                MessageBox.Show("This function is unavaliable.\n"
+                    + "Could not connect to server!");
         }
         private void listen()
         {
