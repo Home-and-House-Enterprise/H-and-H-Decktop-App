@@ -51,6 +51,7 @@ namespace Home_and_House_Security.Data_Controllers
 
             try
             {
+                connected = true;
                 send(m);
                 Message responce = recieveMessage();
                 if (responce.status == "failed")
@@ -63,7 +64,7 @@ namespace Home_and_House_Security.Data_Controllers
                 ThreadStart childref = new ThreadStart(listen);
                 childThread = new Thread(childref);
                 childThread.Start();
-                connected = true;
+                
             }
             catch (Exception e)
             {
