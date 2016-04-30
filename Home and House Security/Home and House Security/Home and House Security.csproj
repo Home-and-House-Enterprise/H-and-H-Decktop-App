@@ -71,6 +71,12 @@
     <Compile Include="Forms\ContactSupport.Designer.cs">
       <DependentUpon>ContactSupport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ContactSupportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ContactSupportForm.Designer.cs">
+      <DependentUpon>ContactSupportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ControlPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     <Compile Include="Data Entities\User.cs" />
     <EmbeddedResource Include="Forms\ContactSupport.resx">
       <DependentUpon>ContactSupport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ContactSupportForm.resx">
+      <DependentUpon>ContactSupportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ControlPanel.resx">
       <DependentUpon>ControlPanel.cs</DependentUpon>
