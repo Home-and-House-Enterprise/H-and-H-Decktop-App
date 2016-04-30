@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Home_and_House_Security.Data_Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,6 @@ namespace Home_and_House_Security
         public ulong id { get; set; }
         public string status { get; set; }
         public string value { get; set; }
+        public FloorPlan[] floorPlans { get; set; }
     }
 }

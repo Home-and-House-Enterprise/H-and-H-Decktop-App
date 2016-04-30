@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FloorPlans));
-            this.pfView = new System.Windows.Forms.PictureBox();
+            this.fpView = new System.Windows.Forms.PictureBox();
             this.cancel = new System.Windows.Forms.Button();
             this.selectfp = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pfView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fpView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pfView
+            // fpView
             // 
-            this.pfView.Image = ((System.Drawing.Image)(resources.GetObject("pfView.Image")));
-            this.pfView.Location = new System.Drawing.Point(56, 48);
-            this.pfView.Name = "pfView";
-            this.pfView.Size = new System.Drawing.Size(377, 267);
-            this.pfView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pfView.TabIndex = 0;
-            this.pfView.TabStop = false;
+            this.fpView.Image = ((System.Drawing.Image)(resources.GetObject("fpView.Image")));
+            this.fpView.Location = new System.Drawing.Point(56, 48);
+            this.fpView.Name = "fpView";
+            this.fpView.Size = new System.Drawing.Size(377, 267);
+            this.fpView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.fpView.TabIndex = 0;
+            this.fpView.TabStop = false;
             // 
             // cancel
             // 
@@ -121,10 +121,10 @@
             this.ClientSize = new System.Drawing.Size(474, 384);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pfView);
+            this.Controls.Add(this.fpView);
             this.Name = "FloorPlans";
             this.Text = "Floor Plans";
-            ((System.ComponentModel.ISupportInitialize)(this.pfView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fpView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -133,7 +133,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pfView;
+        private System.Windows.Forms.PictureBox fpView;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button selectfp;
         private System.Windows.Forms.Button button3;

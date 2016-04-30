@@ -13,7 +13,7 @@ namespace Home_and_House_Security.Forms
     public partial class FindSensor : Form
     {
         public ulong id { get; set; }
-        ulong fpID;
+        public ulong fpID { get; set; }
         public FindSensor(ulong fpID)
         {
             InitializeComponent();
@@ -68,7 +68,7 @@ namespace Home_and_House_Security.Forms
                     return;
                 }
                 Message m = HNHWebServer.doJSONPost<Message>("update-sensor.php", "name=" +
-                name.Text + "&id=" + id + "&fpid=" + fpID + "&xpos=" + fpXpos + "&ypos=" + fpYpos);
+                sensorName.Text + "&id=" + id + "&fpid=" + fpID + "&xpos=" + fpXpos + "&ypos=" + fpYpos);
                 if (m != null)
                 {
                     if (m.status == "success")

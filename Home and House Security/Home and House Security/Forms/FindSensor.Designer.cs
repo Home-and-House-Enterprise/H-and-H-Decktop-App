@@ -40,7 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.yPos = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.sensorName = new System.Windows.Forms.TextBox();
             this.name = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -164,13 +164,13 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Y Position On Floor Plan";
             // 
-            // textBox1
+            // sensorName
             // 
-            this.textBox1.Location = new System.Drawing.Point(124, 91);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 20);
-            this.textBox1.TabIndex = 18;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.sensorName.Location = new System.Drawing.Point(124, 91);
+            this.sensorName.Name = "sensorName";
+            this.sensorName.Size = new System.Drawing.Size(154, 20);
+            this.sensorName.TabIndex = 18;
+            this.sensorName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // name
             // 
@@ -190,7 +190,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Blue;
             this.ClientSize = new System.Drawing.Size(364, 248);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.sensorName);
             this.Controls.Add(this.name);
             this.Controls.Add(this.yPos);
             this.Controls.Add(this.label5);
@@ -223,7 +223,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox yPos;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox sensorName;
         private System.Windows.Forms.Label name;
     }
 }

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data Controllers\HnHServerConnector.cs" />
+    <Compile Include="Data Entities\FloorPlan.cs" />
     <Compile Include="Forms\ContactSupport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,7 +97,7 @@
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data Controllers\MediaStorage.cs" />
+    <Compile Include="Data Controllers\MediaStorageConnector.cs" />
     <Compile Include="Data Entities\Message.cs" />
     <Compile Include="Forms\NewFloorPlan.cs">
       <SubType>Form</SubType>

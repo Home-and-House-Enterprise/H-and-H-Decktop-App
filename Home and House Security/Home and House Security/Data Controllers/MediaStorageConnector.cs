@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,11 +26,21 @@ namespace Home_and_House_Security
             sftp.Close();
         }
 
-        public void getImage(string image)
+        public Image getImage(string image)
         {
             sftp.Connect();
             sftp.Get("/home/hnh-user/images/"+image);
             sftp.Close();
+
+            try
+            {
+                return Image.FromFile(image);
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
         }
 
     }

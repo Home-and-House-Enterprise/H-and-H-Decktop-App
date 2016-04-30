@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cancel = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.select = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -53,7 +53,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.panel1.Controls.Add(this.cancel);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.select);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(12, 68);
             this.panel1.Name = "panel1";
@@ -79,14 +79,15 @@
             this.button3.Text = "Delete Floor Plan";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // select
             // 
-            this.button2.Location = new System.Drawing.Point(21, 116);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Select Floor Plan";
-            this.button2.UseVisualStyleBackColor = true;
+            this.select.Location = new System.Drawing.Point(21, 116);
+            this.select.Name = "select";
+            this.select.Size = new System.Drawing.Size(99, 23);
+            this.select.TabIndex = 1;
+            this.select.Text = "Select Floor Plan";
+            this.select.UseVisualStyleBackColor = true;
+            this.select.Click += new System.EventHandler(this.select_Click);
             // 
             // button1
             // 
@@ -134,7 +135,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button select;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
     }
