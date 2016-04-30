@@ -16,7 +16,10 @@ namespace Home_and_House_Security.Forms
         {
             InitializeComponent();
             name.Text = user.name;
-            
+            username.Text = user.username;
+            email.Text = user.email;
+            account.Text = user.accountType;
+            address.Text = user.address;
         }
 
         private void button1_Click(object sender, EventArgs e)

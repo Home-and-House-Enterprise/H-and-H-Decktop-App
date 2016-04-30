@@ -73,6 +73,16 @@ namespace Home_and_House_Security
             server.close();
             main.Show();
         }
+
+        private void contact_Click(object sender, EventArgs e)
+        {
+            new ContactSupportForm().ShowDialog(this);
+        }
+
+        private void myAccount_Click(object sender, EventArgs e)
+        {
+            new MyAccount(user).ShowDialog(this);
+        }
     }
 
 }

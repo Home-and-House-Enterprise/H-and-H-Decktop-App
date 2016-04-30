@@ -34,6 +34,7 @@
             this.myAccount = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.arm = new System.Windows.Forms.Button();
+            this.contact = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -81,10 +82,12 @@
             this.myAccount.TabIndex = 0;
             this.myAccount.Text = "My Account";
             this.myAccount.UseVisualStyleBackColor = true;
+            this.myAccount.Click += new System.EventHandler(this.myAccount_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel2.Controls.Add(this.contact);
             this.panel2.Controls.Add(this.arm);
             this.panel2.Location = new System.Drawing.Point(323, 66);
             this.panel2.Name = "panel2";
@@ -102,6 +105,17 @@
             this.arm.Text = "ARM SYSTEM!";
             this.arm.UseVisualStyleBackColor = true;
             this.arm.Click += new System.EventHandler(this.arm_Click);
+            // 
+            // contact
+            // 
+            this.contact.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contact.Location = new System.Drawing.Point(26, 77);
+            this.contact.Name = "contact";
+            this.contact.Size = new System.Drawing.Size(185, 35);
+            this.contact.TabIndex = 1;
+            this.contact.Text = "Contact Us";
+            this.contact.UseVisualStyleBackColor = true;
+            this.contact.Click += new System.EventHandler(this.contact_Click);
             // 
             // ControlPanel
             // 
@@ -130,5 +144,6 @@
         private System.Windows.Forms.Button myAccount;
         private System.Windows.Forms.Button viewfp;
         private System.Windows.Forms.Button arm;
+        private System.Windows.Forms.Button contact;
     }
 }

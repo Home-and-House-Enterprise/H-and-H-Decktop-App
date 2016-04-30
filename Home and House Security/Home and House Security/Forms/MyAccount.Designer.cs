@@ -51,7 +51,7 @@
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(404, 318);
+            this.cancel.Location = new System.Drawing.Point(193, 318);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(99, 23);
             this.cancel.TabIndex = 2;
