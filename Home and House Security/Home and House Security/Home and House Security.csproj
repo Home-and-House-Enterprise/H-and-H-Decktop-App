@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DiffieHellman, Version=0.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Tamir.SharpSSH.1.1.1.13\lib\DiffieHellman.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -60,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Data Controllers\HnHServerConnector.cs" />
     <Compile Include="Data Entities\FloorPlan.cs" />
+    <Compile Include="Data Entities\Sensor.cs" />
     <Compile Include="Forms\ContactSupport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +84,12 @@
       <DependentUpon>CreateAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Data Controllers\HNHWebServer.cs" />
+    <Compile Include="Forms\EditSensors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditSensors.Designer.cs">
+      <DependentUpon>EditSensors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FindSensor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CreateAccount.resx">
       <DependentUpon>CreateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditSensors.resx">
+      <DependentUpon>EditSensors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FindSensor.resx">
       <DependentUpon>FindSensor.cs</DependentUpon>

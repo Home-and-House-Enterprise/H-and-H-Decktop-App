@@ -54,5 +54,10 @@ namespace Home_and_House_Security.Forms
         {
             fpView.Image = media.getImage(fp.picture);
         }
+
+        private void editSensors_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -81,7 +81,7 @@
             // 
             // select
             // 
-            this.select.Location = new System.Drawing.Point(21, 116);
+            this.select.Location = new System.Drawing.Point(21, 112);
             this.select.Name = "select";
             this.select.Size = new System.Drawing.Size(99, 23);
             this.select.TabIndex = 1;

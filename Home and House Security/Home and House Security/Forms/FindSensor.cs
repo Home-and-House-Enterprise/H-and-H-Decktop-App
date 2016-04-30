@@ -68,7 +68,8 @@ namespace Home_and_House_Security.Forms
                     return;
                 }
                 Message m = HNHWebServer.doJSONPost<Message>("update-sensor.php", "name=" +
-                sensorName.Text + "&id=" + id + "&fpid=" + fpID + "&xpos=" + fpXpos + "&ypos=" + fpYpos);
+                sensorName.Text + "&id=" + id + "&fpid=" + fpID + "&xpos=" + fpXpos + "&ypos=" + fpYpos
+                + "&enabled=1");
                 if (m != null)
                 {
                     if (m.status == "success")

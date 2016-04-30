@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FloorPlans));
             this.fpView = new System.Windows.Forms.PictureBox();
             this.cancel = new System.Windows.Forms.Button();
             this.selectfp = new System.Windows.Forms.Button();
@@ -36,13 +35,13 @@
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.editSensors = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.fpView)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fpView
             // 
-            this.fpView.Image = ((System.Drawing.Image)(resources.GetObject("fpView.Image")));
             this.fpView.Location = new System.Drawing.Point(56, 48);
             this.fpView.Name = "fpView";
             this.fpView.Size = new System.Drawing.Size(377, 267);
@@ -92,13 +91,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.editSensors);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.selectfp);
             this.panel1.Controls.Add(this.cancel);
             this.panel1.Location = new System.Drawing.Point(12, 321);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(447, 51);
+            this.panel1.Size = new System.Drawing.Size(447, 60);
             this.panel1.TabIndex = 2;
             // 
             // label1
@@ -113,12 +113,22 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Floor Plan";
             // 
+            // editSensors
+            // 
+            this.editSensors.Location = new System.Drawing.Point(121, 32);
+            this.editSensors.Name = "editSensors";
+            this.editSensors.Size = new System.Drawing.Size(99, 23);
+            this.editSensors.TabIndex = 2;
+            this.editSensors.Text = "Edit Sensors";
+            this.editSensors.UseVisualStyleBackColor = true;
+            this.editSensors.Click += new System.EventHandler(this.editSensors_Click);
+            // 
             // FloorPlans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Blue;
-            this.ClientSize = new System.Drawing.Size(474, 384);
+            this.ClientSize = new System.Drawing.Size(474, 391);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.fpView);
@@ -140,5 +150,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button editSensors;
     }
 }

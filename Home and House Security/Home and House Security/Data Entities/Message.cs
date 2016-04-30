@@ -17,5 +17,6 @@ namespace Home_and_House_Security
         public string status { get; set; }
         public string value { get; set; }
         public FloorPlan[] floorPlans { get; set; }
+        public Sensor[] sensors { get; set; }
     }
 }
