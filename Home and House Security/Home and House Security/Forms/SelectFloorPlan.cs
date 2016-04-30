@@ -61,8 +61,11 @@ namespace Home_and_House_Security.Forms
 
         private void select_Click(object sender, EventArgs e)
         {
-            this.selectedFloorPlan = floorPlans[fplist.SelectedIndex];
-            this.Hide();
+            if (fplist.SelectedIndex >= 0)
+            {
+                this.selectedFloorPlan = floorPlans[fplist.SelectedIndex];
+                this.Hide();
+            }
         }
     }
 }
