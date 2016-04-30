@@ -55,7 +55,7 @@
             // 
             // camImage
             // 
-            this.camImage.Location = new System.Drawing.Point(179, 62);
+            this.camImage.Location = new System.Drawing.Point(195, 62);
             this.camImage.Name = "camImage";
             this.camImage.Size = new System.Drawing.Size(237, 211);
             this.camImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -69,7 +69,7 @@
             this.panel1.Controls.Add(this.zoomIn);
             this.panel1.Controls.Add(this.selectCam);
             this.panel1.Controls.Add(this.cancel);
-            this.panel1.Location = new System.Drawing.Point(12, 293);
+            this.panel1.Location = new System.Drawing.Point(23, 293);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(418, 41);
             this.panel1.TabIndex = 6;
@@ -117,7 +117,7 @@
             this.camlist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.camlist.FormattingEnabled = true;
             this.camlist.ItemHeight = 20;
-            this.camlist.Location = new System.Drawing.Point(12, 87);
+            this.camlist.Location = new System.Drawing.Point(28, 87);
             this.camlist.Name = "camlist";
             this.camlist.Size = new System.Drawing.Size(148, 184);
             this.camlist.TabIndex = 30;
@@ -127,7 +127,7 @@
             this.name.AutoSize = true;
             this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name.ForeColor = System.Drawing.Color.White;
-            this.name.Location = new System.Drawing.Point(32, 62);
+            this.name.Location = new System.Drawing.Point(48, 62);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(99, 18);
             this.name.TabIndex = 31;
