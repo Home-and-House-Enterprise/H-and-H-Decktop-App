@@ -37,7 +37,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Name = new System.Windows.Forms.Label();
+            this.name = new System.Windows.Forms.Label();
             this.username = new System.Windows.Forms.Label();
             this.email = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -90,7 +90,7 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.email);
             this.panel1.Controls.Add(this.username);
-            this.panel1.Controls.Add(this.Name);
+            this.panel1.Controls.Add(this.name);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label6);
@@ -147,14 +147,14 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // Name
+            // name
             // 
-            this.Name.AutoSize = true;
-            this.Name.Location = new System.Drawing.Point(108, 22);
-            this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(9, 13);
-            this.Name.TabIndex = 12;
-            this.Name.Text = "l";
+            this.name.AutoSize = true;
+            this.name.Location = new System.Drawing.Point(108, 22);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(9, 13);
+            this.name.TabIndex = 12;
+            this.name.Text = "l";
             // 
             // username
             // 
@@ -241,7 +241,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label Name;
+        private System.Windows.Forms.Label name;
         private System.Windows.Forms.Label address;
         private System.Windows.Forms.Label account;
         private System.Windows.Forms.Label label8;
