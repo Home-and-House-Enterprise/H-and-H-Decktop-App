@@ -12,10 +12,10 @@
 	//echo mysqli_error($mysqli);
 	
 	if ( false===$result ) {
-		echo json_encode(["type" => "success", "message" => false]);	
+		echo json_encode(["status" => "failed", "message" => false]);	
 	}
 	else{
-		echo json_encode(["type" => "success", "message" => true]);
+		echo json_encode(["status" => "success", "message" => true]);
 			
 	}
 

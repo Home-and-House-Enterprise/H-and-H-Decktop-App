@@ -12,11 +12,14 @@
 		return $row["id"];
 	}
 	function createSetting($id,$key,$value){
-		$sql = "INSERT INTO `hnh-db`.`settings` (`user_id`, `key`, `value`) VALUES ('".$id."', '".$key."', '".$value."');";
-		$result = $mysqli->query($sql);
-		if ($_GET["mode"]=="debug"){
-			echo "get here";
-		}
+		//$sql = "INSERT INTO `hnh-db`.`settings` (`user_id`, `name`, `value`) VALUES ('".$id."', '".$key."', '".$value."');";
+		//echo "get here 1<br>".$sql;
+		$sql = "INSERT INTO `hnh-db`.`settings` (`user_id`, `name`, `value`, `enabled`) VALUES (\'1\', \'vsdv\', \'sdvd\', \'1\');";
+		$result = mysqli_query($mysqli,$sql);
+		printf("Error message: %s\n",mysqli_error($mysqli));
+		//$result = $mysqli->query($sql);
+		//print_r($result);
+		//echo "alive<br>";
 		if ( false===$result ) {
 			return false;
 		}
@@ -25,10 +28,10 @@
 		}
 	}
 	if ($_GET["mode"]=="debug"){
-		echo "Debugging";
-		echo "output:".createSetting(1,"systemStatus","disarmed");
-		echo "get here 2";
-		exit("Done!");
+		echo "Debugging is very good<br>";
+		createSetting(1,"systemStatus","disarmed");
+		echo "get here 3 ";
+		die("Done!");//comment
 	}
 	$name = $_POST["name"];
 	$user = $_POST["username"];
@@ -41,12 +44,14 @@
 	}
 	else{
 		//$id=getUserID($user,$pass);
-	/*	if(createSetting(1,"systemStatus","disarmed")===false){
+		//$status = 
+		/*if(createSetting(1,"systemStatus","disarmed") == false){
 			echo json_encode(["type" => "success", "message" => true]);
 		}
 		else{
 			echo json_encode(["type" => "success", "message" => false]);
 		}*/
+		echo json_encode(["type" => "success", "message" => true]);
 		
 	}
 

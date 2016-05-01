@@ -11,8 +11,8 @@
 	}
 	$row = $result->fetch_assoc();
 	//if($row = $result->fetch_assoc())
-		echo json_encode(["id" => $row["id"],"name" => $row["name"],"address" => $row["address"], 
-		"accountType" => $row["accountType"]]);
+		echo json_encode(["id" => $row["id"],"name" => $row["name"],"username" => $row["username"],"address" => $row["address"], 
+		"accountType" => $row["accountType"],"email" => $row["email"]]);
 	//}
 
 ?>
