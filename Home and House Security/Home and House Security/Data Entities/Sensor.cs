@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Home_and_House_Security.Data_Entities
 {
-    class Sensor
+    public class Sensor
     {
         public ulong id { get; set; }
         public string name { get; set; }

@@ -80,6 +80,20 @@ namespace Home_and_House_Security.Forms
                         MessageBox.Show("Sensor Updated successful!");
                     }
                 }
+                m = new Message();
+                m.messageType = "update";
+                m.type = "sensorStatus";
+                if (sEnable.Checked)
+                {
+                    m.value = "enabled";
+                }
+                else
+                {
+                    m.value = "disabled";
+                }
+                
+                m.id = id;
+                ControlPanel.server.send(m);
             }
         }
 

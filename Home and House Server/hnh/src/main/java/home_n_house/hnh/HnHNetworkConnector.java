@@ -153,19 +153,17 @@ public class HnHNetworkConnector implements Runnable {
 			}
 			if(type.equals("sensorStatus")){
 				String value=(String) request.get("value");
-				//arm the system
 				if(value.equals("enabled")){
-					//System.out.println("brodcast arm");
-					//broadcast
-					
+					if(this.TYPE=="house")
+						sendToUser(this.ID, request);
+					else
+						sendToHouse(this.ID, request);
 				}
-				//disarm the system
-				else if(value.equals("disables")){
-					System.out.println("brodcast disarm");
-					//broadcast
-					for(HnHNetworkConnector con : connections){
-						con.send(request);
-					}
+				else if(value.equals("disabled")){
+					if(this.TYPE=="house")
+						sendToUser(this.ID, request);
+					else
+						sendToHouse(this.ID, request);
 				}
 			}
 		}

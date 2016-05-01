@@ -17,7 +17,7 @@ namespace Home_and_House_Security
         Login main;
         FloorPlans fp;
         User user;
-        HnHServerConnector server;
+        public static HnHServerConnector server;
         bool armed = false;
         public ControlPanel(Login main,User userIn)
         {

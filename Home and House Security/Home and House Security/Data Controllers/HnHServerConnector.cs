@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Home_and_House_Security.Data_Controllers
 {
-    class HnHServerConnector
+    public class HnHServerConnector
     {
         String server = "ec2-52-91-88-255.compute-1.amazonaws.com";
         bool shutDown = false, connected=false;
